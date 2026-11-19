@@ -18,7 +18,7 @@ export default function Skills() {
     <section id="skills" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Toolkit"
+          eyebrow="02 / Toolkit"
           title="The stack behind the screens."
           description="A practical set of tools I use daily to take an app from first sketch to production — frontend, backend and everything in between."
         />

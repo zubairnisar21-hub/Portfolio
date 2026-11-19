@@ -28,7 +28,7 @@ export default function About() {
     <section id="about" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="About"
+          eyebrow="01 / About"
           title="I build for the moment someone actually opens the app."
           description="Three years into mobile development, I've learned that great apps aren't just good-looking — they solve a real problem, load fast and keep working when the network doesn't."
         />

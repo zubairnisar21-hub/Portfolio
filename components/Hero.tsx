@@ -1,24 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  BatteryFull,
-  Bell,
-  Github,
-  LayoutGrid,
-  Mail,
-  MapPin,
-  PackageSearch,
-  Search,
-  ShieldCheck,
-  Signal,
-  Sparkles,
-  UserRound,
-  Wifi,
-} from "lucide-react";
+import { ArrowRight, Code2, Github, Mail, MapPin, Sparkles, Zap } from "lucide-react";
 import { profile, stats } from "@/lib/data";
-import ProfilePhoto from "./ProfilePhoto";
+import ProfilePhoto, { profileImageSrc } from "./ProfilePhoto";
 
 const rise = {
   hidden: { opacity: 0, y: 24 },
@@ -111,130 +96,81 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Visual */}
+        {/* Modern portrait composition */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px]"
+          className="relative mx-auto h-[460px] w-full max-w-[400px]"
         >
-          <div className="absolute -inset-12 -z-10 rounded-full bg-violet-600/15 blur-[80px]" />
+          <div className="absolute -inset-12 -z-10 rounded-full bg-violet-600/20 blur-[90px]" />
+          <div className="absolute left-0 top-24 h-52 w-52 rounded-full bg-cyan-400/10 blur-3xl" />
 
-          <div className="floaty relative rotate-[3deg] rounded-[2.6rem] border border-white/15 bg-[#0c0c14] p-2.5 shadow-[0_40px_90px_-30px_rgba(76,29,149,0.8)]">
-            <div className="overflow-hidden rounded-[2.05rem] border border-white/10 bg-gradient-to-b from-[#171428] via-[#0f0e19] to-[#0a0a11]">
-              {/* status bar */}
-              <div className="flex items-center justify-between px-5 pt-4 text-[10px] font-semibold text-white/70">
-                <span>9:41</span>
-                <div className="flex items-center gap-1.5">
-                  <Signal size={11} />
-                  <Wifi size={11} />
-                  <BatteryFull size={13} />
-                </div>
-              </div>
-
-              {/* app header */}
-              <div className="px-5 pt-7 pb-4">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-violet-300">
-                      Campus network
-                    </p>
-                    <h3 className="mt-1 text-xl font-bold text-white">Alerts</h3>
-                  </div>
-                  <span className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80">
-                    <Bell size={16} />
-                    <span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-rose-400" />
-                  </span>
-                </div>
-
-                <div className="mt-5 flex items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.04] px-3 py-2.5 text-white/40">
-                  <Search size={13} />
-                  <span className="text-[11px]">Search alerts or items...</span>
-                </div>
-              </div>
-
-              {/* alert cards */}
-              <div className="space-y-2.5 px-5 pb-4">
-                <div className="rounded-2xl border border-rose-400/20 bg-rose-500/[0.09] p-3.5">
-                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-rose-300">
-                    <ShieldCheck size={12} /> Principal office
-                  </div>
-                  <p className="mt-2 text-[12px] font-semibold leading-5 text-white">
-                    Campus-wide notice: library closes at 6 PM today.
-                  </p>
-                  <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-white/10">
-                    <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-rose-400 to-orange-300" />
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-violet-400/20 bg-violet-500/[0.09] p-3.5">
-                  <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider text-violet-300">
-                    <PackageSearch size={12} /> Found item
-                  </div>
-                  <div className="mt-2 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400/80 to-orange-500/80 text-sm">
-                      🎒
-                    </div>
-                    <div>
-                      <p className="text-[12px] font-semibold text-white">Blue backpack</p>
-                      <p className="text-[10px] text-white/50">Block C · 2 hours ago</p>
-                    </div>
-                    <ArrowRight size={13} className="ml-auto text-violet-300" />
-                  </div>
-                </div>
-              </div>
-
-              {/* bottom nav */}
-              <div className="mx-4 mb-4 flex items-center justify-around rounded-2xl border border-white/[0.07] bg-white/[0.04] px-2 py-2.5">
-                {[LayoutGrid, Search, Bell, UserRound].map((Icon, i) => (
-                  <span
-                    key={i}
-                    className={`flex h-8 w-8 items-center justify-center rounded-lg ${
-                      i === 0 ? "bg-violet-500/25 text-violet-200" : "text-white/35"
-                    }`}
-                  >
-                    <Icon size={15} />
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* profile card */}
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-            className="glass absolute -bottom-6 -right-2 flex items-center gap-3 rounded-2xl px-3.5 py-3 shadow-2xl sm:-right-8"
-          >
-            <ProfilePhoto />
-            <div>
-              <p className="text-[12px] font-bold text-white">{profile.name}</p>
-              <p className="text-[10px] text-white/50">{profile.role}</p>
-            </div>
-            <span className="ml-1 h-2 w-2 rounded-full bg-emerald-400" />
-          </motion.div>
-
-          {/* floating chips */}
           <motion.div
             animate={{ y: [0, -9, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-1/2 top-1 w-[258px] -translate-x-1/2 -rotate-[3deg] sm:w-[290px]"
+          >
+            <div className="relative rounded-[2.2rem] border border-white/15 bg-gradient-to-br from-violet-500/35 via-transparent to-cyan-400/25 p-[2px] shadow-[0_45px_100px_-30px_rgba(76,29,149,0.95)]">
+              <div className="relative overflow-hidden rounded-[2.05rem] bg-[#100e1a]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={profileImageSrc}
+                  alt="Muhammad Zubair — Mobile App Developer"
+                  className="h-[350px] w-full object-cover object-top sm:h-[380px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09080f] via-[#09080f]/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
+                    Open to work
+                  </div>
+                  <p className="mt-2 font-display text-xl font-bold text-white">{profile.name}</p>
+                  <p className="mt-0.5 text-[11px] text-white/60">
+                    {profile.role} · {profile.focus}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="glass absolute -left-5 top-16 flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold shadow-xl sm:-left-10"
+            className="glass absolute -left-2 top-16 flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold shadow-xl sm:-left-6"
           >
             <Sparkles size={13} className="text-violet-300" /> Flutter
           </motion.div>
+
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-            className="glass absolute -right-3 top-1/3 flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold shadow-xl sm:-right-8"
+            animate={{ y: [0, 9, 0] }}
+            transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="glass absolute -right-2 top-28 flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold shadow-xl sm:-right-6"
           >
-            <span className="h-2 w-2 rounded-full bg-cyan-300" /> Firebase
+            <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_10px_#67e8f9]" /> Firebase
           </motion.div>
+
           <motion.div
-            animate={{ y: [0, -7, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
-            className="glass absolute -left-8 bottom-12 flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold shadow-xl sm:-left-14"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 5.6, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+            className="glass absolute bottom-14 -left-2 flex items-center gap-3 rounded-2xl px-4 py-3 shadow-xl sm:-left-8"
           >
-            <ShieldCheck size={13} className="text-emerald-300" /> Play Store ready
+            <span className="font-display text-2xl font-bold gradient-text">09</span>
+            <span className="text-[10px] leading-4 text-white/60">
+              apps
+              <br />
+              shipped
+            </span>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 1.3 }}
+            className="glass absolute bottom-8 -right-2 flex items-center gap-2 rounded-xl px-3 py-2.5 shadow-xl sm:-right-6"
+          >
+            <Code2 size={14} className="text-cyan-300" />
+            <span className="text-[11px] font-semibold text-white/80">Dart · Kotlin</span>
+            <Zap size={12} className="text-amber-300" />
           </motion.div>
         </motion.div>
       </div>

@@ -11,7 +11,7 @@ export default function Experience() {
     <section id="experience" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Journey"
+          eyebrow="04 / Journey"
           title="Where I've done the work."
           description="Three years of building, shipping and learning — in a product team and through structured training."
         />

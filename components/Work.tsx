@@ -152,7 +152,7 @@ export default function Work() {
     <section id="work" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Selected work"
+          eyebrow="03 / Selected work"
           title="Nine apps. Real problems. Working code."
           description="Campus systems, AI utilities and everyday tools — a few things I've designed, built and shipped. Tap any card for the full breakdown."
         />

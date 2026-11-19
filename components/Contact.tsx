@@ -51,7 +51,7 @@ export default function Contact() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-96 bg-[radial-gradient(50%_100%_at_50%_100%,rgba(124,92,252,0.13),transparent_70%)]" />
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Contact"
+          eyebrow="05 / Contact"
           title="Let's build something worth opening every day."
           description="Have an app idea, a role to fill or just want to talk Flutter and Android? Drop a message — I usually reply within a day."
         />
