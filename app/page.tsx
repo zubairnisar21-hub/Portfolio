@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import BackToTop from "@/components/BackToTop";
 import Contact from "@/components/Contact";
 import CursorGlow from "@/components/CursorGlow";
 import Experience from "@/components/Experience";
@@ -23,6 +24,7 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
+      <BackToTop />
       <Footer />
     </>
   );

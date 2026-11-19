@@ -2,6 +2,8 @@
 
 A modern, dark-themed personal portfolio built with Next.js, TypeScript, Tailwind CSS and Framer Motion.
 
+**Live:** https://zubairnisar21-hub.github.io/Portfolio/
+
 ## Run locally
 
 ```bash
@@ -15,29 +17,30 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
-npm start
 ```
+
+The static site is exported to `out/`.
 
 ## Deploy
 
-This project is ready to deploy on [Vercel](https://vercel.com):
+The site deploys automatically to **GitHub Pages** on every push to `main` via `.github/workflows/deploy.yml`.
 
-1. Push this repository to GitHub.
-2. In Vercel, choose **Add New → Project** and import this repo.
-3. Framework preset: **Next.js** (detected automatically). No environment variables needed.
-4. Click **Deploy**.
+- Source repo: https://github.com/zubairnisar21-hub/Portfolio
+- Live URL: https://zubairnisar21-hub.github.io/Portfolio/
+- The `gh-pages` branch holds the generated static site; the workflow rebuilds and publishes it.
 
-Every push to `main` will redeploy automatically.
+No secrets or environment variables are required.
 
 ## Structure
 
-- `app/` — Next.js App Router pages and global styles
-- `components/` — UI sections (Hero, About, Skills, Work, Experience, Contact)
+- `app/` — Next.js App Router pages, global styles and favicon
+- `components/` — UI sections (Hero, About, Skills, Work, Experience, Contact) and effects
 - `lib/data.ts` — all profile, project and skill content (edit here to update the site)
+- `assets/profile.jpg` — your portrait (bundled as a hashed static asset)
 
-## Your photo
+## Change your photo
 
-Drop a square photo at `public/profile.jpg` (JPG format). It appears automatically in the hero and About sections. Until the file is added, a stylish "MZ" monogram is shown as a fallback.
+Replace `assets/profile.jpg` with a square JPG and push to `main`. A stylish "MZ" monogram is shown automatically if the image is missing.
 
 ## Contact
 
