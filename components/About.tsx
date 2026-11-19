@@ -47,7 +47,10 @@ export default function About() {
             ))}
             <Reveal delay={0.16}>
               <div className="relative h-full overflow-hidden rounded-2xl border border-violet-400/25 bg-gradient-to-br from-violet-600/20 via-fuchsia-600/10 to-transparent p-6">
-                <span className="text-4xl font-bold leading-none text-white/10">03</span>
+                <div className="flex items-center gap-4">
+                  <ProfilePhoto size="lg" />
+                  <span className="text-4xl font-bold leading-none text-white/10">03</span>
+                </div>
                 <p className="mt-3 text-sm leading-7 text-white/80">
                   years of turning rough ideas into working apps — across campus systems, AI tools
                   and everyday utilities.

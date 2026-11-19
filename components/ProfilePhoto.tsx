@@ -1,15 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import profileImage from "@/assets/profile.jpg";
 
-export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" }) {
+export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const [failed, setFailed] = useState(false);
-  const dimensions = size === "md" ? "h-12 w-12 text-sm" : "h-9 w-9 text-xs";
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const imageSrc = profileImage.src.replace(/([^:])\/{2,}/g, "$1/");
+  const dimensions =
+    size === "lg"
+      ? "h-20 w-20 text-lg"
+      : size === "md"
+        ? "h-12 w-12 text-sm"
+        : "h-9 w-9 text-xs";
 
   return (
     <span
-      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full ring-2 ring-violet-400/40 ${dimensions}`}
+      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full ring-2 ring-violet-400/50 ${dimensions}`}
     >
       {failed ? (
         <span className="flex h-full w-full items-center justify-center bg-gradient-to-br from-violet-500 to-fuchsia-600 font-bold text-white">
@@ -18,7 +24,7 @@ export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" }) {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={`${basePath}/profile.jpg`}
+          src={imageSrc}
           alt="Muhammad Zubair"
           onError={() => setFailed(true)}
           className="h-full w-full object-cover"
