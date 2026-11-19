@@ -5,6 +5,7 @@ import {
   Bus,
   Captions,
   ChevronDown,
+  ExternalLink,
   Film,
   PackageSearch,
   Printer,
@@ -76,51 +77,66 @@ function ProjectCard({
   const Icon = iconMap[project.id] ?? Sparkles;
 
   return (
-    <motion.button
+    <motion.div
       layout
-      type="button"
-      onClick={onToggle}
-      aria-expanded={open}
-      className="glass card-lift group flex h-full w-full flex-col rounded-2xl p-6 text-left"
+      className="glass card-lift group flex h-full w-full flex-col rounded-2xl p-6"
     >
-      <div className="flex items-start justify-between gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/25 to-cyan-400/10 text-violet-200 ring-1 ring-inset ring-white/10">
-          <Icon size={20} />
-        </span>
-        <span className="rounded-full border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/45">
-          {project.category} · {project.year}
-        </span>
-      </div>
-
-      <h3 className="mt-5 text-lg font-bold tracking-tight text-white transition-colors group-hover:text-violet-200">
-        {project.name}
-      </h3>
-      <p className="mt-2 text-[13px] leading-6 text-muted">{project.oneLiner}</p>
-
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {project.stack.slice(0, 3).map((tag) => (
-          <span
-            key={tag}
-            className="rounded-md bg-white/[0.045] px-2 py-1 text-[10px] font-medium text-white/55"
-          >
-            {tag}
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex flex-1 flex-col text-left"
+      >
+        <div className="flex items-start justify-between gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/25 to-cyan-400/10 text-violet-200 ring-1 ring-inset ring-white/10">
+            <Icon size={20} />
           </span>
-        ))}
-      </div>
+          <span className="rounded-full border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white/45">
+            {project.category} · {project.year}
+          </span>
+        </div>
 
-      <div className="mt-auto pt-5">
-        <AnimatePresence initial={false}>
-          {open && <Details project={project} />}
-        </AnimatePresence>
-        <span className="flex items-center gap-1.5 text-[12px] font-semibold text-violet-300">
-          {open ? "Show less" : "View details"}
-          <ChevronDown
-            size={14}
-            className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          />
-        </span>
-      </div>
-    </motion.button>
+        <h3 className="mt-5 text-lg font-bold tracking-tight text-white transition-colors group-hover:text-violet-200">
+          {project.name}
+        </h3>
+        <p className="mt-2 text-[13px] leading-6 text-muted">{project.oneLiner}</p>
+
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.stack.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="rounded-md bg-white/[0.045] px-2 py-1 text-[10px] font-medium text-white/55"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-5">
+          <AnimatePresence initial={false}>
+            {open && <Details project={project} />}
+          </AnimatePresence>
+          <span className="flex items-center gap-1.5 text-[12px] font-semibold text-violet-300">
+            {open ? "Show less" : "View details"}
+            <ChevronDown
+              size={14}
+              className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+            />
+          </span>
+        </div>
+      </button>
+
+      {project.storeUrl && (
+        <a
+          href={project.storeUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-5 flex items-center justify-center gap-2 rounded-xl border border-emerald-400/20 bg-emerald-400/[0.07] px-3.5 py-2.5 text-[12px] font-semibold text-emerald-200 transition-colors hover:border-emerald-300/40 hover:bg-emerald-400/[0.12]"
+        >
+          <ExternalLink size={14} /> View on Play Store
+        </a>
+      )}
+    </motion.div>
   );
 }
 

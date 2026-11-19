@@ -75,6 +75,7 @@ export type Project = {
   features: string[];
   outcome: string;
   year: string;
+  storeUrl?: string;
   featured?: boolean;
 };
 
@@ -150,10 +151,12 @@ export const projects: Project[] = [
   },
   {
     id: "offline-video-gallery",
-    name: "Offline Video Gallery",
-    oneLiner: "A buttery gallery that never needs the internet.",
+    name: "Offline Gallery",
+    oneLiner: "An immersive full-screen media experience — with zero internet.",
     description:
-      "An offline-first media browser that indexes local videos, groups them into folders and delivers a smooth scrolling experience even on large storage libraries.",
+      "An offline-first media browser that indexes local videos, groups them into folders and delivers an immersive, full-screen scrolling experience even on large storage libraries.",
+    storeUrl:
+      "https://play.google.com/store/apps/details?id=com.tickstudio.offline.gallery",
     category: "Tools",
     role: "App architecture & UI",
     stack: ["Flutter", "SQLite", "Native Android storage"],
