@@ -3,9 +3,11 @@
 import { useState } from "react";
 import profileImage from "@/assets/profile.jpg";
 
+export const profileImageSrc = profileImage.src.replace(/([^:])\/{2,}/g, "$1/");
+
 export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const [failed, setFailed] = useState(false);
-  const imageSrc = profileImage.src.replace(/([^:])\/{2,}/g, "$1/");
+  const imageSrc = profileImageSrc;
   const dimensions =
     size === "lg"
       ? "h-20 w-20 text-lg"

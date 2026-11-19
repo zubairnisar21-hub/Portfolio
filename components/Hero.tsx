@@ -39,7 +39,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="mb-7 flex flex-wrap items-center gap-3"
           >
-            <ProfilePhoto size="md" />
+            <ProfilePhoto size="lg" />
             <span className="inline-flex items-center gap-2.5 rounded-full border border-emerald-400/20 bg-emerald-400/[0.07] px-3.5 py-1.5 text-xs font-medium text-emerald-300">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />

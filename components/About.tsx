@@ -2,6 +2,7 @@
 
 import { CheckCircle2, Cpu, Layers3, Rocket } from "lucide-react";
 import ProfilePhoto from "./ProfilePhoto";
+import ProfilePortrait from "./ProfilePortrait";
 import { Reveal, SectionHeading } from "./Reveal";
 
 const principles = [
@@ -34,6 +35,35 @@ export default function About() {
 
         <div className="grid gap-5 lg:grid-cols-[1.25fr_0.75fr]">
           <div className="grid gap-4 sm:grid-cols-2">
+            <Reveal className="sm:col-span-2">
+              <div className="glass flex flex-col items-center gap-7 rounded-3xl p-7 sm:flex-row sm:p-8">
+                <ProfilePortrait />
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
+                    The developer
+                  </p>
+                  <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                    Hey, I&apos;m Zubair.
+                  </h3>
+                  <p className="mt-3 max-w-lg text-sm leading-7 text-muted">
+                    A mobile app developer who cares about the small stuff — smooth animations,
+                    sensible data models and apps that still work when the internet doesn&apos;t.
+                    Flutter and native Android are my everyday tools.
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {["Flutter", "Native Android", "Firebase", "3 years experience"].map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[11px] font-medium text-white/70"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
             {principles.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.08}>
                 <div className="glass card-lift h-full rounded-2xl p-6">
@@ -47,10 +77,7 @@ export default function About() {
             ))}
             <Reveal delay={0.16}>
               <div className="relative h-full overflow-hidden rounded-2xl border border-violet-400/25 bg-gradient-to-br from-violet-600/20 via-fuchsia-600/10 to-transparent p-6">
-                <div className="flex items-center gap-4">
-                  <ProfilePhoto size="lg" />
-                  <span className="text-4xl font-bold leading-none text-white/10">03</span>
-                </div>
+                <span className="block text-4xl font-bold leading-none text-white/10">03</span>
                 <p className="mt-3 text-sm leading-7 text-white/80">
                   years of turning rough ideas into working apps — across campus systems, AI tools
                   and everyday utilities.
