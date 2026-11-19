@@ -35,6 +35,10 @@ Every push to `main` will redeploy automatically.
 - `components/` — UI sections (Hero, About, Skills, Work, Experience, Contact)
 - `lib/data.ts` — all profile, project and skill content (edit here to update the site)
 
+## Your photo
+
+Drop a square photo at `public/profile.jpg` (JPG format). It appears automatically in the hero and About sections. Until the file is added, a stylish "MZ" monogram is shown as a fallback.
+
 ## Contact
 
 - Email: zubairnisaar21@gmail.com

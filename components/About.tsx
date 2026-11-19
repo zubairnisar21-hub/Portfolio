@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle2, Cpu, Layers3, Rocket } from "lucide-react";
+import ProfilePhoto from "./ProfilePhoto";
 import { Reveal, SectionHeading } from "./Reveal";
 
 const principles = [
@@ -67,6 +68,13 @@ export default function About() {
 
           <Reveal delay={0.12}>
             <div className="glass h-full rounded-2xl p-6 sm:p-7">
+              <div className="mb-6 flex items-center gap-3">
+                <ProfilePhoto size="sm" />
+                <div>
+                  <p className="text-sm font-bold text-white">Muhammad Zubair</p>
+                  <p className="text-[11px] text-muted">Flutter &amp; Android Developer</p>
+                </div>
+              </div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-300">
                 Currently
               </p>

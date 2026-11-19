@@ -18,6 +18,7 @@ import {
   Wifi,
 } from "lucide-react";
 import { profile, stats } from "@/lib/data";
+import ProfilePhoto from "./ProfilePhoto";
 
 const rise = {
   hidden: { opacity: 0, y: 24 },
@@ -195,6 +196,20 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
+          {/* profile card */}
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+            className="glass absolute -bottom-6 -right-2 flex items-center gap-3 rounded-2xl px-3.5 py-3 shadow-2xl sm:-right-8"
+          >
+            <ProfilePhoto />
+            <div>
+              <p className="text-[12px] font-bold text-white">{profile.name}</p>
+              <p className="text-[10px] text-white/50">{profile.role}</p>
+            </div>
+            <span className="ml-1 h-2 w-2 rounded-full bg-emerald-400" />
+          </motion.div>
 
           {/* floating chips */}
           <motion.div
