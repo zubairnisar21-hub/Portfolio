@@ -40,6 +40,43 @@ h3,
   color: #fff;
 }
 
+/* Hover polish for interactive text */
+a,
+button {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover {
+  color: #c4b5fd;
+  text-shadow: 0 0 18px rgba(167, 139, 250, 0.45);
+}
+h1:hover,
+h2:hover,
+h3:hover {
+  text-shadow: 0 0 28px rgba(167, 139, 250, 0.22);
+}
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Cursor-following spotlight */
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 460px;
+  height: 460px;
+  margin-left: -230px;
+  margin-top: -230px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.13), transparent 65%);
+  mix-blend-mode: screen;
+  transition: opacity 0.35s ease;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" }) {
   const [failed, setFailed] = useState(false);
   const dimensions = size === "md" ? "h-12 w-12 text-sm" : "h-9 w-9 text-xs";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <span
@@ -17,7 +18,7 @@ export default function ProfilePhoto({ size = "md" }: { size?: "sm" | "md" }) {
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src="/profile.jpg"
+          src={`${basePath}/profile.jpg`}
           alt="Muhammad Zubair"
           onError={() => setFailed(true)}
           className="h-full w-full object-cover"
